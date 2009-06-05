@@ -1,0 +1,7 @@
+= tomcat-rails
+
+Description goes here.
+
+== Copyright
+
+Copyright (c) 2009 David Calavera. See LICENSE for details.
