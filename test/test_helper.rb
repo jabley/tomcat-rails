@@ -2,8 +2,9 @@ require 'rubygems'
 require 'test/unit'
 require 'shoulda'
 
-$LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
-$LOAD_PATH.unshift(File.dirname(__FILE__))
+$:.unshift(File.dirname(__FILE__) + '/../lib')
+$:.unshift(File.dirname(__FILE__) + '/../jetty-libs')
+
 require 'tomcat-rails'
 
 class Test::Unit::TestCase

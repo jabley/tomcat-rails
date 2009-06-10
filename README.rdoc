@@ -1,7 +1,14 @@
 = tomcat-rails
 
-Description goes here.
+Tomcat Rails allows you to run a rails application within a Tomcat container.
+
+This project has just born, there are a lot of things to do. Take a look at the TODO.txt file and feel free to add new features, tests, patches...
+
+== USAGE:
+
+  cd myrailsapp
+  jruby -S tomcat_rails
 
 == Copyright
 
-Copyright (c) 2009 David Calavera. See LICENSE for details.
+Copyright (c) 2009 David Calavera<calavera@apache.org>. See LICENSE for details.

@@ -5,7 +5,7 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "tomcat-rails"
-    gem.summary = %Q{TODO}
+    gem.summary = %Q{Simple library to run a rails application into an embed Tomcat}
     gem.email = "david.calavera@gmail.com"
     gem.homepage = "http://github.com/calavera/tomcat-rails"
     gem.authors = ["David Calavera"]
