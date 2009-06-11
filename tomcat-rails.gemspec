@@ -25,6 +25,7 @@ Gem::Specification.new do |s|
      "VERSION",
      "bin/tomcat_rails",
      "lib/tomcat-rails.rb",
+     "lib/tomcat-rails/command_line_parser.rb",
      "lib/tomcat-rails/jars.rb",
      "lib/tomcat-rails/server.rb",
      "test/test_helper.rb",

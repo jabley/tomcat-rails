@@ -63,13 +63,12 @@ module TomcatRails
       web_app.addParameter('jruby.initial.runtimes', @config[:jruby_min_runtimes].to_s)
       web_app.addParameter('rails.env', @config[:environment].to_s)
       web_app.addParameter('rails.root', '/')
+      web_app.addParameter('public.root', '/public')
+      
     end
     
     def add_web_dir_resources(web_app)
-      dir_context = TomcatRails::Tomcat::FileDirContext.new
-      dir_context.setDocBase(File.join(Dir.pwd, "public"))
-      
-      web_app.setResources(dir_context)
+      web_app.setDocBase(File.join(Dir.pwd, "public/"))
     end
   end
 end
