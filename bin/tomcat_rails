@@ -3,25 +3,7 @@
 $:.unshift(File.dirname(__FILE__) + '/../lib')
 $:.unshift(File.dirname(__FILE__) + '/../tomcat-libs')
 
-require "java"
-
-require 'optparse'
 require "tomcat-rails"
 
-OPTIONS = {
-  :port => '3000',
-  :environment => 'development',
-  :context_path => '/', 
-}
-
-parser = OptionParser.new do |opts|
-  opts.banner = 'Tomcat server options:'
-  opts.separator ''
-  
-  opts.on('-e', '--env ENVIRONMENT', 'Rails environment', "default: #{OPTIONS[:environment]}") { |v| OPTIONS[:environment] = v }
-  opts.on('-p', '--port PORT', 'Port to bind to', "default: #{OPTIONS[:port]}") { |v| OPTIONS[:port] = v }
-  opts.on('-c', '--context CONTEXT_PATH', 'The application context path', "default: #{OPTIONS[:context_path]}") { |v| OPTIONS[:context_path] = v }
-  opts.parse!(ARGV)
-end
-
-TomcatRails::Server.new(OPTIONS).start
+opts = TomcatRails::CommandLineParser.parse
+TomcatRails::Server.new(opts).start
