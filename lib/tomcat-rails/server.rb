@@ -12,14 +12,14 @@ module TomcatRails
     }
     
     def initialize(config = {})
-      @config = config.merge!(@@defaults)
+      @config = @@defaults.merge!(config)
       
       @tomcat = TomcatRails::Tomcat::Tomcat.new
-      @tomcat.setPort(@config[:port])
+      @tomcat.setPort(@config[:port].to_i)
       
-      web_app = @tomcat.addWebapp(@config[:context_path], Dir.pwd)
+      web_app = @tomcat.addWebapp(@config[:context_path].to_s, Dir.pwd)
       
-      add_rack_filter(web_app, @config[:context_path])      
+      add_rack_filter(web_app, @config[:context_path].to_s)      
       add_context_loader(web_app)
       add_init_params(web_app)
       add_web_dir_resources(web_app)

@@ -44,7 +44,7 @@ Gem::Specification.new do |s|
      "tomcat-libs/tomcat-jasper.jar"
   ]
   s.has_rdoc = true
-  s.homepage = %q{http://github.com/calavera/tomcat-rails}
+  s.homepage = %q{http://calavera.github.com/tomcat-rails}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.2}
