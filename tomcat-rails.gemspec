@@ -28,6 +28,7 @@ Gem::Specification.new do |s|
      "lib/tomcat-rails/command_line_parser.rb",
      "lib/tomcat-rails/jars.rb",
      "lib/tomcat-rails/server.rb",
+     "lib/tomcat-rails/web_app.rb",
      "test/test_helper.rb",
      "test/tomcat-rails_test.rb",
      "tomcat-libs/core-3.1.1.jar",

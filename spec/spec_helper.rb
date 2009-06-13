@@ -9,4 +9,5 @@ end
 $:.unshift(File.dirname(__FILE__) + '/../lib')
 $:.unshift(File.dirname(__FILE__) + '/../tomcat-libs')
 
+require 'java'
 require 'tomcat-rails'
