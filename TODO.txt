@@ -4,4 +4,3 @@
 * Add rdocs
 * configure it from warbler
 * configure it from a config file
-* autoload of java libraries and classes

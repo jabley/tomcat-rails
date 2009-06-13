@@ -24,6 +24,7 @@ module TomcatRails
     def add_context_loader
       class_loader = org.jruby.util.JRubyClassLoader.new(JRuby.runtime.jruby_class_loader)
       add_application_libs(class_loader)
+      add_application_classes(class_loader)
       
       loader = TomcatRails::Tomcat::WebappLoader.new(class_loader)
 
@@ -52,11 +53,16 @@ module TomcatRails
     end
     
     def add_application_libs(class_loader)
-      lib_dir = "#{@config[:web_app_dir]}/#{@config[:lib_dir]}/**/*.jar"
+      resources_dir = "#{@config[:web_app_dir]}/#{@config[:lib_dir]}/**/*.jar"
       
-      Dir[lib_dir].each do |jar|
-        class_loader.addURL(java.io.File.new(jar).to_url)
+      Dir[resources_dir].each do |resource|
+        class_loader.addURL(java.io.File.new(resource).to_url)
       end
+    end
+    
+    def add_application_classes(class_loader)
+      resources_dir = "#{@config[:web_app_dir]}/#{@config[:classes_dir]}"
+      class_loader.addURL(java.io.File.new(resources_dir).to_url)
     end
   end
 end
