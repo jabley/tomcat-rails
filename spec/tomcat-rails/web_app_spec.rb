@@ -5,7 +5,7 @@ describe TomcatRails::WebApp do
     tomcat = TomcatRails::Tomcat::Tomcat.new
     tomcat_web_app = tomcat.addWebapp('/', File.dirname(__FILE__) + '/../../')
     config = { 
-      :lib_dir => 'lib',
+      :libs_dir => 'lib',
       :classes_dir => 'classes',
       :web_app_dir => File.join(File.dirname(__FILE__), '..', 'web_app_mock') 
     }

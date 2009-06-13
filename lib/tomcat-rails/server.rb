@@ -4,7 +4,7 @@ module TomcatRails
     @@defaults = {
       :environment => 'development',
       :context_path => '/',
-      :lib_dir => 'lib',
+      :libs_dir => 'lib',
       :classes_dir => 'classes',
       :port => 3000,
       :jruby_min_runtimes => 1,

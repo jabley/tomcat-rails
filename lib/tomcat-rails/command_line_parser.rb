@@ -6,7 +6,9 @@ module TomcatRails
       default_options = {
         :port => '3000',
         :environment => 'development',
-        :context_path => '/', 
+        :context_path => '/',
+        :libs_dir => 'lib',
+        :classes_dir => 'classes'
       }
       
       parser = OptionParser.new do |opts|
@@ -26,6 +28,16 @@ module TomcatRails
         opts.on('-c', '--context CONTEXT_PATH', 'The application context path', 
             "default: #{default_options[:context_path]}") do |v| 
           default_options[:context_path] = v
+        end
+        
+        opts.on('--lib', '--jars LIBS_DIR', 'Directory containing jars used by the application', 
+            "default: #{default_options[:libs_dir]}") do |v| 
+          default_options[:libs_dir] = v
+        end
+        
+        opts.on('--classes', '--classes CLASSES_DIR', 'Directory containing classes used by the application', 
+            "default: #{default_options[:classes_dir]}") do |v| 
+          default_options[:classes_dir] = v
         end
         
         opts.on('-v', '--version', 'display the current version') do
