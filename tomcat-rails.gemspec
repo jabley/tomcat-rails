@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["David Calavera"]
-  s.date = %q{2009-06-11}
+  s.date = %q{2009-06-13}
   s.default_executable = %q{tomcat_rails}
   s.email = %q{david.calavera@gmail.com}
   s.executables = ["tomcat_rails"]
@@ -17,6 +17,7 @@ Gem::Specification.new do |s|
   s.files = [
     ".document",
      ".gitignore",
+     "HelloTomcat.java",
      "History.txt",
      "LICENSE",
      "README.rdoc",
@@ -29,8 +30,11 @@ Gem::Specification.new do |s|
      "lib/tomcat-rails/jars.rb",
      "lib/tomcat-rails/server.rb",
      "lib/tomcat-rails/web_app.rb",
-     "test/test_helper.rb",
-     "test/tomcat-rails_test.rb",
+     "spec/spec.opts",
+     "spec/spec_helper.rb",
+     "spec/tomcat-rails/web_app_spec.rb",
+     "spec/web_app_mock/classes/HelloTomcat.class",
+     "spec/web_app_mock/lib/jyaml-1.3.jar",
      "tomcat-libs/core-3.1.1.jar",
      "tomcat-libs/jasper-el.jar",
      "tomcat-libs/jasper-jdt.jar",
@@ -42,17 +46,19 @@ Gem::Specification.new do |s|
      "tomcat-libs/servlet-api-2.5-6.1.14.jar",
      "tomcat-libs/tomcat-core.jar",
      "tomcat-libs/tomcat-dbcp.jar",
-     "tomcat-libs/tomcat-jasper.jar"
+     "tomcat-libs/tomcat-jasper.jar",
+     "tomcat-rails.gemspec"
   ]
   s.has_rdoc = true
-  s.homepage = %q{http://calavera.github.com/tomcat-rails}
+  s.homepage = %q{http://github.com/calavera/tomcat-rails}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.2}
   s.summary = %q{Simple library to run a rails application into an embed Tomcat}
   s.test_files = [
-    "test/test_helper.rb",
-     "test/tomcat-rails_test.rb"
+    "spec/spec_helper.rb",
+     "spec/tomcat-rails/command_line_parser_spec.rb",
+     "spec/tomcat-rails/web_app_spec.rb"
   ]
 
   if s.respond_to? :specification_version then
