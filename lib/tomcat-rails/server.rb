@@ -12,13 +12,19 @@ module TomcatRails
     }
     
     def initialize(config = {})
+      load_config(config)
+      load_tomcat_server
+      create_web_app      
+    end
+    
+    def load_config(config)
       @config = @@defaults.merge!(config)
       @config[:web_app_dir] = Dir.pwd
-      
+    end
+    
+    def load_tomcat_server
       @tomcat = TomcatRails::Tomcat::Tomcat.new
       @tomcat.setPort(@config[:port].to_i)
-      
-      create_web_app      
     end
     
     def create_web_app

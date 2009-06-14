@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["David Calavera"]
-  s.date = %q{2009-06-13}
+  s.date = %q{2009-06-14}
   s.default_executable = %q{tomcat_rails}
   s.email = %q{david.calavera@gmail.com}
   s.executables = ["tomcat_rails"]
@@ -17,7 +17,6 @@ Gem::Specification.new do |s|
   s.files = [
     ".document",
      ".gitignore",
-     "HelloTomcat.java",
      "History.txt",
      "LICENSE",
      "README.rdoc",
@@ -32,9 +31,11 @@ Gem::Specification.new do |s|
      "lib/tomcat-rails/web_app.rb",
      "spec/spec.opts",
      "spec/spec_helper.rb",
+     "spec/tomcat-rails/command_line_parser_spec.rb",
      "spec/tomcat-rails/web_app_spec.rb",
      "spec/web_app_mock/classes/HelloTomcat.class",
      "spec/web_app_mock/lib/jyaml-1.3.jar",
+     "spec/web_app_mock/tomcat.yml",
      "tomcat-libs/core-3.1.1.jar",
      "tomcat-libs/jasper-el.jar",
      "tomcat-libs/jasper-jdt.jar",

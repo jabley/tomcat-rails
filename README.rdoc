@@ -12,6 +12,13 @@ This project has just born, there are a lot of things to do. Take a look at the 
 
   cd myrailsapp
   jruby -S tomcat_rails
+  
+== CONFIGURATION:
+
+The server can also be configured from a yaml file. If a file is not especified, the server tries to load the file _config/tomcat.yml_.
+
+  jruby -S tomcat_rails -f
+  jruby -S tomcat_rails --config my_custom_configuration.yml
 
 == Copyright
 

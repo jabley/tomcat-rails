@@ -21,4 +21,12 @@ describe TomcatRails::CommandLineParser do
     options = TomcatRails::CommandLineParser.parse
     options[:libs_dir].should == 'my_jars'
   end
+  
+  it "should override the config file when it's especified" do
+    ARGV = "-f #{File.join(File.dirname(__FILE__), '..', 'web_app_mock', 'tomcat.yml')}".split
+    
+    options = TomcatRails::CommandLineParser.parse
+    options[:environment].should == 'production'
+  end
+  
 end
