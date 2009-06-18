@@ -1,9 +1,9 @@
 module TomcatRails
   class WebApp
-    attr_reader :web_app, :config
+    attr_reader :context, :config
     
-    def initialize(web_app, config)
-      @web_app = web_app
+    def initialize(context, config)
+      @context = context
       @config = config
     end
     
@@ -17,8 +17,8 @@ module TomcatRails
       filter_map.setFilterName('RackFilter')
       filter_map.addURLPattern("#{pattern}/*")
       
-      @web_app.addFilterDef(filter_def)
-      @web_app.addFilterMap(filter_map)
+      @context.addFilterDef(filter_def)
+      @context.addFilterMap(filter_map)
     end
     
     def add_context_loader
@@ -28,28 +28,28 @@ module TomcatRails
       
       loader = TomcatRails::Tomcat::WebappLoader.new(class_loader)
 
-      loader.container = @web_app
-      @web_app.loader = loader
+      loader.container = @context
+      @context.loader = loader
     end
     
     def add_init_params
       [:jruby_min_runtimes, :jruby_max_runtimes].each do |param|
-        @web_app.addParameter(param.to_s.gsub(/_/, '.'), @config[param].to_s)
+        @context.addParameter(param.to_s.gsub(/_/, '.'), @config[param].to_s)
       end
       
-      @web_app.addParameter('jruby.initial.runtimes', @config[:jruby_min_runtimes].to_s)
-      @web_app.addParameter('rails.env', @config[:environment].to_s)
-      @web_app.addParameter('rails.root', '/')
-      @web_app.addParameter('public.root', '/public')
+      @context.addParameter('jruby.initial.runtimes', @config[:jruby_min_runtimes].to_s)
+      @context.addParameter('rails.env', @config[:environment].to_s)
+      @context.addParameter('rails.root', '/')
+      @context.addParameter('public.root', '/public')
       
     end
     
     def add_web_dir_resources
-      @web_app.setDocBase(File.join(Dir.pwd, "public/"))
+      @context.setDocBase(File.join(@config[:web_app_dir], "public/"))
     end
     
     def add_rack_context_listener
-      @web_app.addApplicationListener('org.jruby.rack.rails.RailsServletContextListener')
+      @context.addApplicationListener('org.jruby.rack.rails.RailsServletContextListener')
     end
     
     def add_application_libs(class_loader)
