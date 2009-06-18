@@ -15,7 +15,15 @@ This project has just born, there are a lot of things to do. Take a look at the 
   
 == CONFIGURATION:
 
-The server can also be configured from a yaml file. If a file is not especified, the server tries to load the file _config/tomcat.yml_.
+Tomcat-Rails allows you to configure some parameters when the server is started from the command line, the following is a list of the currently supported options:
+
+  * -p, --port PORT         =>    port to bind to.
+  * -e, --env ENVIRONMENT   =>    rails environment.
+  * -c, --context CONTEXT   =>    application context path.
+  * --lib, --jars LIBS_DIR  =>    directory containing jars.
+  * --classes CLASSES_DIR   =>    directory containing classes.    
+
+The server can also be configured from a yaml file. If a file is not especified, the server tries to load the file <em>config/tomcat.yml</em>. Within this file you can add other options like jruby.min.runtimes(:jruby_min_runtimes) or jruby.max.runtimes(:jruby_max_runtimes).
 
   jruby -S tomcat_rails -f
   jruby -S tomcat_rails --config my_custom_configuration.yml
