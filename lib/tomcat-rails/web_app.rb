@@ -64,5 +64,19 @@ module TomcatRails
       resources_dir = File.join(@config[:web_app_dir], @config[:classes_dir])
       class_loader.addURL(java.io.File.new(resources_dir).to_url)
     end
+
+    def load_default_web_xml
+      default_web_xml = File.expand_path(File.join(@config[:web_app_dir], @config[:default_web_xml]))
+      
+      if File.exist?(default_web_xml)
+        @context.setDefaultWebXml(default_web_xml)
+        @context.setDefaultContextXml(default_web_xml)
+
+        context_config = TomcatRails::Tomcat::ContextConfig.new
+        context_config.setDefaultWebXml(default_web_xml)
+
+        @context.addLifecycleListener(context_config)
+      end
+    end
   end
 end

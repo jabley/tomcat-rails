@@ -6,6 +6,7 @@ module TomcatRails
       :context_path => '/',
       :libs_dir => 'lib',
       :classes_dir => 'classes',
+      :default_web_xml => 'config/web.xml',
       :port => 3000,
       :jruby_min_runtimes => 1,
       :jruby_max_runtimes => 5
@@ -29,7 +30,8 @@ module TomcatRails
     
     def create_web_app
       web_app = WebApp.new(@tomcat.addWebapp(@config[:context_path].to_s, @config[:web_app_dir]), @config)
-      
+
+      web_app.load_default_web_xml
       web_app.add_rack_filter
       web_app.add_context_loader
       web_app.add_init_params
